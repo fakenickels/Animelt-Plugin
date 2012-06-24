@@ -1,0 +1,22 @@
+BETA-VERSION
+
+Demonstration of use
+
+You can call Animelt Lib on this way: ge( selector ), $( selector ) and _( selector )
+
+"Animeltizing"
+
+$( sel ).animelt( props,duration,finish );
+
+$("div").animelt({
+	width: "40px",
+	border: "2px solid #000"
+}, 1, function(){
+	console.log("It's finished!");
+});
+
+Other demo:
+
+$("div").animelt({
+	"-webkit-transform": "rotateX(30deg) rotateY(120deg)"
+}, 0.6);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Testes</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="animelt.js"></script>
+	<script type="text/javascript">
+$(function(){
+	var i = 0;
+	$("#t1").click(function(){
+		i += Math.cos(i) * 180;
+		$(".test").animelt({
+			"-webkit-transform":"rotateX("+i+"deg) rotateY("+i+"deg)"
+		}, 1500);
+	});
+})
+	</script>
+	<style type="text/css">
+		.test {
+			width:150px;
+			height:150px;
+			background-color:red;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" id="t1">Teste</a>
+	<div class="test"></div>
+	<div class="test"></div>
+	<div class="test"></div>
+	<div class="test"></div>
+</body>
+</html>

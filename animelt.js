@@ -27,6 +27,20 @@
 var rCssValue = /([0-9.]+)([a-z%]+)/ig,
 	digits = /[0-9.]+/g,
 	dTest = /[0-9]/g;
+	specials = {};
+
+if( $.browser.webkit ){
+	specials.transform = "-webkit-transform";
+}
+else if( $.browser.moz ){
+	specials.transform = "-moz-transform";
+}
+else if( $.browser.opera ){
+	specials.transform = "-o-transform";
+}
+else if( $.browser.ie ){
+	specials.transform = "-ms-transform"
+}
 
 $.fn.animelt = function(props,a,b,c){
 	var opts = $.speed( a,b,c ),
@@ -48,6 +62,10 @@ $.fn.animelt = function(props,a,b,c){
 		var node = this, 
 			prop = { };
 		$.each(props,function( key,val ){
+			//Makes the cross-browser
+			if( key in specials )
+				key = specials[key];
+
 			//Store the origin value
 			var oldvalue = "";
 			//Tries find the @oldValue in @el.style propertie

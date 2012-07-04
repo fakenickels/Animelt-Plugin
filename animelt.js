@@ -33,13 +33,13 @@ if( $.browser.webkit ){
 	specials.transform = "-webkit-transform";
 }
 else if( $.browser.moz ){
-	specials.transform = "-moz-transform";
+	specials.transform = "MozTransform";
 }
 else if( $.browser.opera ){
-	specials.transform = "-o-transform";
+	specials.transform = "OTransform";
 }
 else if( $.browser.ie ){
-	specials.transform = "-ms-transform"
+	specials.transform = "-ms-transform";
 }
 
 $.fn.animelt = function(props,a,b,c){
@@ -47,7 +47,7 @@ $.fn.animelt = function(props,a,b,c){
 		//No-conflict form
 		_this = this;
 	//Shorcut for custom animations
-	if( props.constructor == Function ){
+	if( $.isFunction(props) ){
 		$({ p:0 }).animate({ p:1 },{
 			step: props,
 			duration: opts.duration,
@@ -78,20 +78,19 @@ $.fn.animelt = function(props,a,b,c){
 			else oldvalue = "0";
 			prop[ key ] = [ oldvalue,val ];
 		});
-		nodecss[ el ] = [ node,prop ];
+		nodecss[ el ] = prop;
 	});
-	console.log(nodecss)
+
 	//Run the animation
 	$( { p:0 } ).animate({ p:1 },{
 		step: function( p ){
-			$.each(nodecss,function(){
-			 	var node = this[0],
-			 		props = this[1];
+			_this.each(function( i,el ){
+			 	var props = nodecss[ i ];
 				$.each(props,function(key,val){
 					var ind = 0,
 						//@old store the olds values in an array
 						old = val[0].match( digits );
-					node.style[key] = val[1].replace(rCssValue,function(exp,num,unit){
+					el.style[key] = val[1].replace(rCssValue,function(exp,num,unit){
 						old[ind] = old[ind] || "0";
 						var finalvalue = Number(old[ind]) + ( Number(num) - Number(old[ind]) ) * p;							
 						ind++;

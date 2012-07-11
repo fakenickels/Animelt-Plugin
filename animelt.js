@@ -27,7 +27,8 @@
 var rCssValue = /([0-9.]+)([a-z%]+)/ig,
 	digits = /[0-9.]+/g,
 	dTest = /[0-9]/g;
-	specials = {};
+	specials = {},
+	quickJ = $( [1] ); 
 
 if( $.browser.webkit ){
 	specials.transform = "-webkit-transform";
@@ -45,27 +46,35 @@ else if( $.browser.ie ){
 $.fn.animelt = function(props,a,b,c){
 	var opts = $.speed( a,b,c ),
 		//No-conflict form
-		_this = this;
+		$this = this;
+
 	//Shorcut for custom animations
 	if( $.isFunction(props) ){
 		$({ p:0 }).animate({ p:1 },{
+
 			step: props,
+
 			duration: opts.duration,
+
 			easing: opts.easing,
+
 			complete: opts.complete
+
 		});
 		return this;
 	};
-	
+
+	//@nodecss keeps the props of els
 	var nodecss = [];
+
 	this.each(function( el ){
-		var node = this, 
+		var node = this,
+			//@prop keeps the old and new value of prop
 			prop = { };
 		$.each(props,function( key,val ){
 			//Makes the cross-browser
 			if( key in specials )
 				key = specials[key];
-
 			//Store the origin value
 			var oldvalue = "";
 			//Tries find the @oldValue in @el.style propertie
@@ -83,26 +92,40 @@ $.fn.animelt = function(props,a,b,c){
 
 	//Run the animation
 	$( { p:0 } ).animate({ p:1 },{
+
 		step: function( p ){
-			_this.each(function( i,el ){
+			$this.each(function( i,el ){
+				//@props gets the props of respective el
+				quickJ[0] = el;
 			 	var props = nodecss[ i ];
-				$.each(props,function(key,val){
+			 	//Makes the 'magic' animation
+			 	//Hey man, look at me rockin' now!
+				$.each(props,function( prop,val ){
 					var ind = 0,
 						//@old store the olds values in an array
 						old = val[0].match( digits );
-					el.style[key] = val[1].replace(rCssValue,function(exp,num,unit){
-						old[ind] = old[ind] || "0";
-						var finalvalue = Number(old[ind]) + ( Number(num) - Number(old[ind]) ) * p;							
-						ind++;
-						return finalvalue + unit;
-					});
+					//Uses the jQuery CSS method as Wrapper Pattern
+					quickJ.css( 
+						prop, 
+						val[1].replace(rCssValue,function(exp,num,unit){
+							old[ind] = old[ind] || "0";
+							var finalvalue = Number(old[ind]) + ( Number(num) - Number(old[ind]) ) * p;							
+							ind++;
+							return finalvalue + unit;
+						}) 
+					);
 				});
 			});
 		},
+
 		duration: opts.duration,
+
 		easing: opts.easing,
+
 		complete: opts.complete
+
 	});
+
 	return this;
 };
 })(jQuery);

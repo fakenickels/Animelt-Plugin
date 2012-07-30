@@ -20,7 +20,6 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/grsabreu/Animelt-Plugin">View on GitHub</a>
           <h1 id="project_title">Animelt</h1>
-          <h1 id="project_title">Animelt</h1>
 
           <h2 id="project_tagline">The jQuery plugin for complex animations</h2>
 
@@ -60,12 +59,9 @@ Project begins in Jan/2012.</p>
 
 <div class="highlight">
 <pre><span class="nx">$</span><span class="p">(</span><span class="s2">"div"</span><span class="p">).</span><span class="nx">animelt</span><span class="p">({</span>
- HEAD
     <span class="nx">transform</span><span class="o">:</span> <span class="s2">"rotateY(360deg)"</span><span class="p">,</span>
     <span class="nx">left</span><span class="o">:</span> <span class="s2">"400px"</span><span class="p">,</span>    
-
     <span class="nx">width</span><span class="o">:</span> <span class="s2">"40px"</span><span class="p">,</span>
-
     <span class="nx">border</span><span class="o">:</span> <span class="s2">"2px solid #000"</span>
 <span class="p">},</span> <span class="mi">1000</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"It's finished!"</span><span class="p">);</span>
@@ -79,8 +75,11 @@ Project begins in Jan/2012.</p>
       $( this ).animelt({
         transform: "rotateY(360deg)",
         left: "400px",
+        width: "40px",
         border: "2px solid #000"
-      }, 1000)
+      }, 1000, function(){
+        console.log("It's finished");
+      })
     })
   </script>
 </div>
@@ -141,8 +140,8 @@ Project begins in Jan/2012.</p>
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Animelt-plugin maintained by <a href="https://github.com/grsabreu">grsabreu</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p class="copyright">Animelt-plugin maintained by <a href="https://github.com/grsabreu">Gabriel Rubens</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages help</a></p>
       </footer>
     </div>
 

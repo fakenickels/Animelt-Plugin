@@ -109,6 +109,8 @@ $.fn.animelt = function(props,a,b,c){
 						prop, 
 						val[1].replace(rCssValue,function(exp,num,unit){
 							old[ind] = old[ind] || "0";
+							Number(num) == Number(old[ind]) ?
+								old[ind] = 0 : void 0;							
 							var finalvalue = Number(old[ind]) + ( Number(num) - Number(old[ind]) ) * p;							
 							ind++;
 							return finalvalue + unit;

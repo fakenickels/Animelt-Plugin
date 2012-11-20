@@ -24,12 +24,15 @@
 */
 
 (function($, undefined){
-var rCssValue = /([0-9.]+)([a-z%]+)/ig,
+	// TODO: A RegExp to get standalone numbers values too
+var rCssValue = /([0-9.-]+)([a-z%]+)/ig,
+	isHexColor = /#[a-f0-9]/ig,
 	digits = /[0-9.]+/g,
 	dTest = /[0-9]/g;
 	specials = {},
 	quickJ = $( [1] ); 
 
+// TODO: Fix transform in Opera and Mozilla
 if( $.browser.webkit ){
 	specials.transform = "-webkit-transform";
 }
@@ -42,7 +45,12 @@ else if( $.browser.opera ){
 else if( $.browser.ie ){
 	specials.transform = "-ms-transform";
 }
-
+//Animelt Element Identifier
+var aeid = 0;
+	cache = {}
+function getAeid(){
+	return aeid++ + "animelt";
+}
 $.fn.animelt = function(props,a,b,c){
 	var opts = $.speed( a,b,c ),
 		//No-conflict form

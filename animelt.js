@@ -25,18 +25,18 @@
 
 (function($, undefined){
 	// TODO: A RegExp to get standalone numbers values too
-var rCssValue = /([0-9.-]+)([a-z%]+)/ig,
+var rCssValue = /([#0-9.-]+)([#a-z%]+)?/ig,
 	isHexColor = /#[a-f0-9]/ig,
 	digits = /[0-9.]+/g,
-	dTest = /[0-9]/g;
+	dTest = /[0-9]/g,
 	specials = {},
 	quickJ = $( [1] ); 
 
 // TODO: Fix transform in Opera and Mozilla
 if( $.browser.webkit ){
-	specials.transform = "-webkit-transform";
+	specials.transform = "WebkitTransform";
 }
-else if( $.browser.moz ){
+else if( $.browser.mozilla ){
 	specials.transform = "MozTransform";
 }
 else if( $.browser.opera ){
@@ -109,19 +109,18 @@ $.fn.animelt = function(props,a,b,c){
 			 	//Makes the 'magic' animation
 			 	//Hey man, look at me rockin' now!
 				$.each(props,function( prop,val ){
-					var ind = 0,
+					var indx = 0,
 						//@old store the olds values in an array
 						old = val[0].match( digits );
 					//Uses the jQuery CSS method as Wrapper Pattern
 					quickJ.css( 
 						prop, 
 						val[1].replace(rCssValue,function(exp,num,unit){
-							old[ind] = old[ind] || "0";
-							Number(num) == Number(old[ind]) ?
-								old[ind] = 0 : void 0;							
-							var finalvalue = Number(old[ind]) + ( Number(num) - Number(old[ind]) ) * p;							
-							ind++;
-							return finalvalue + unit;
+							if( isHexColor.test(num) ) return num;
+							old[indx] = old[indx] || "0";					
+							var finalvalue = Number(old[indx]) + ( Number(num) - Number(old[indx]) ) * p;			
+							indx++;
+							return finalvalue + (unit || '' );
 						}) 
 					);
 				});

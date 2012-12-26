@@ -9,28 +9,47 @@
 $(function(){
 	var i = 0;
 	$("#t1").click(function(){
-		i += Math.cos(i) * 180;
+		i += Math.round( Math.random( i ) * 180 );
 		$(".test").animelt({
-			"-webkit-transform":"rotateX("+i+"deg) rotateY("+i+"deg)"
+			transform: "rotate("+i+"deg)"
 		}, 1500);
 	});
 
 })
 	</script>
 	<style type="text/css">
+		.container {
+			position: absolute;
+			top: 50%; left: 50%;
+			margin: -150px 0 0 -150px;
+			height: 300px;
+			width: 300px;
+			border: 1px solid #ccc
+		}
+		
 		.test {
-			width:150px;
-			height:150px;
-			background-color:red;
+			display: inline;
+			float: left;
 			position: relative;
+			width: 49%;
+			height: 49%;
+			background-color: red;
+			border: 1px solid #ccc;
+			opacity: 0.6
+		}
+		
+		#t1 {
+			float: right;
 		}
 	</style>
 </head>
 <body>
 	<a href="#" id="t1">Teste</a>
-	<div class="test"></div>
-	<div class="test"></div>
-	<div class="test"></div>
-	<div class="test"></div>
+	<div class='container'>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+	</div>
 </body>
 </html>

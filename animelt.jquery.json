@@ -22,9 +22,9 @@
 	"licenses": [
 		{
 			"type": "GPLv2",
-			"url: "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js"
+			"url": "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js"
 		}
-	]
+	],
 	"homepage": "http://grsabreu.github.com/Animelt-Plugin",
 	"download": "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js",
 	"dependencies": {

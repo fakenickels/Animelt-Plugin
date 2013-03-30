@@ -3,11 +3,11 @@
 	"title": "Animelt Plugin",
 	"description": "jQuery plugin for complex animations",
 	"keywords": ["animation", "ui", "effect", "jquery"],
-	"version": "1.0.1",
 	"author": {
 		"name": "Gabriel Rubens",
 		"url": "http://github.com/grsabreu/"
 	},
+	"version": "1.1.0",
 	"maintainers": [
 		{
 			"name": "Gabriel Rubens",

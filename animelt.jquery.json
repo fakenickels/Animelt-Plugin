@@ -2,7 +2,7 @@
 	"name": "animelt",
 	"title": "Animelt Plugin",
 	"description": "jQuery plugin for complex animations",
-	"keywords": ["animation", "css3 animation", "complex animation"],
+	"keywords": ["animation", "ui", "effect"],
 	"version": "0.1.0",
 	"author": {
 		"name": "Gabriel Rubens",
@@ -19,6 +19,12 @@
 			"email": "judsonbarroso@hotmail.com"
 		}		
 	],
+	"licenses": [
+		{
+			"type": "GPLv2",
+			"url: "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js"
+		}
+	]
 	"homepage": "http://grsabreu.github.com/Animelt-Plugin",
 	"download": "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js",
 	"dependencies": {

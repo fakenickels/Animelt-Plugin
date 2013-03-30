@@ -1,0 +1,27 @@
+{
+	"name": "animelt",
+	"title": "Animelt Plugin",
+	"description": "jQuery plugin for complex animations",
+	"keywords": ["animation", "css3 animation", "complex animation"],
+	"version": "0.1.0",
+	"author": {
+		"name": "Gabriel Rubens",
+		"url": "http://github.com/grsabreu"
+	},
+	"maintainers": [
+		{
+			"name": "Gabriel Rubens",
+			"email": "grsabreu@gmail.com",
+			"url": "http://gabrielrubensjs.blogspot.com"
+		},
+		{
+			"name": "Judson B.",
+			"email": "judsonbarroso@hotmail.com"
+		}		
+	],
+	"homepage": "http://grsabreu.github.com/Animelt-Plugin",
+	"download": "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js",
+	"dependencies": {
+		"jquery": ">=1.5"	
+	} 
+}

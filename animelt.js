@@ -1,13 +1,12 @@
 /*	Animelt, The JavaScript Framework for complex animations
-	Beta version, by Gabriel Rubens and Judson B.
+	Beta version, by Gabriel Rubens with Judson B collaboration.
 
 	github.com/grsabreu
-	gabrielrubensjs.wordpress.com
 	gabrielrubensjs.blogspot.com
 	
 	github.com/
 	blog.judsonbsilva.com
-	Copyright (C) 2012 - POGLabz
+	Copyright (C) 2012
 
  	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -24,7 +23,8 @@
 */
 
 (function($, undefined){
-	// TODO: A RegExp to get standalone numbers values too
+"use strict";
+
 var rCssValue = /([#0-9.-]+)([#a-z%]+)?/ig,
 	isHexColor = /#[a-f0-9]/ig,
 	digits = /[0-9.]+/g,
@@ -45,12 +45,7 @@ else if( $.browser.opera ){
 else if( $.browser.ie ){
 	specials.transform = "-ms-transform";
 }
-//Animelt Element Identifier
-var aeid = 0;
-	cache = {}
-function getAeid(){
-	return aeid++ + "animelt";
-}
+
 $.fn.animelt = function(props,a,b,c){
 	var opts = $.speed( a,b,c ),
 		//No-conflict form
@@ -85,21 +80,22 @@ $.fn.animelt = function(props,a,b,c){
 				key = specials[key];
 			//Store the origin value
 			var oldvalue = "";
-			//Tries find the @oldValue in @el.style propertie
+			//Tries find the @oldValue in @el.style property
 			if ( node.style[key] )
 				oldvalue = node.style[key];
 			//If not tries find the @oldValue in computedStyle of el
 			else if ( dTest.test( $(node).css(key) ) )
 				oldvalue = $(node).css(key);
 			//If it does not find in either the @oldValue takes value 0
-			else oldvalue = "0";
+			else
+				oldvalue = "0";
 			prop[ key ] = [ oldvalue,val ];
 		});
 		nodecss[ el ] = prop;
 	});
 
 	//Run the animation
-	$( { p:0 } ).animate({ p:1 },{
+	$( { p:0 } ).animate({ p:1 }, {
 
 		step: function( p ){
 			$this.each(function( i,el ){
@@ -111,15 +107,14 @@ $.fn.animelt = function(props,a,b,c){
 				$.each(props,function( prop,val ){
 					var indx = 0,
 						//@old store the olds values in an array
-						old = val[0].match( digits );
-					//Uses the jQuery CSS method as Wrapper Pattern
+						old = val[0].match( digits ) || 0;
 					quickJ.css( 
 						prop, 
 						val[1].replace(rCssValue,function(exp,num,unit){
-							if( isHexColor.test(num) ) return num;
-							old[indx] = old[indx] || "0";					
+							if( isHexColor.test(exp) ) return exp;			
 							var finalvalue = Number(old[indx]) + ( Number(num) - Number(old[indx]) ) * p;			
 							indx++;
+							console.log( old )
 							return finalvalue + (unit || '' );
 						}) 
 					);

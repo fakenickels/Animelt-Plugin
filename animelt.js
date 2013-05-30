@@ -114,7 +114,6 @@ $.fn.animelt = function(props,a,b,c){
 							if( isHexColor.test(exp) ) return exp;			
 							var finalvalue = Number(old[indx]) + ( Number(num) - Number(old[indx]) ) * p;			
 							indx++;
-							console.log( old )
 							return finalvalue + (unit || '' );
 						}) 
 					);

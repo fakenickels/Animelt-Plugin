@@ -16,17 +16,17 @@
 		},
 		{
 			"name": "Judson B.",
-			"email": "judsonbarroso@hotmail.com"
+			"email": "judsonbarroso@gmail.com"
 		}		
 	],
 	"licenses": [
 		{
-			"type": "GPLv2",
-			"url": "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js"
+			"type": "MIT",
+			"url": "https://github.com/grsabreu/Animelt-Plugin/raw/master/dist/animelt.min.js"
 		}
 	],
 	"homepage": "http://grsabreu.github.com/Animelt-Plugin",
-	"download": "https://github.com/grsabreu/Animelt-Plugin/raw/master/animelt.js",
+	"download": "https://github.com/grsabreu/Animelt-Plugin/raw/master/dist/animelt.min.js",
 	"dependencies": {
 		"jquery": ">=1.5"	
 	} 

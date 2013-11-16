@@ -1,0 +1,25 @@
+{
+  "name": "Animelt-Plugin",
+  "version": "1.1.2",
+  "homepage": "https://github.com/grsabreu/Animelt-Plugin",
+  "authors": [
+    "Gabriel Rubens <grsabreu@gmail.com>"
+  ],
+  "description": "Fallback for CSS3 animations in JavaScript",
+  "main": "animelt.js",
+  "keywords": [
+    "css3"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  }
+}

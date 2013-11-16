@@ -1,0 +1,40 @@
+{
+  "name": "Animelt",
+  "description": "My toy for complex animations (css3 fallbacks)",
+  "version": "1.1.2",
+  "homepage": "http://grsabreu.github.io/Animelt-Plugin",
+  "author": {
+    "name": "Gabriel Rubens",
+    "email": "grsabreu@gmail.com",
+    "url": "http://medium.com/@_gabrielrubens"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grsabreu/Animelt-Plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grsabreu/Animelt-Plugin/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://grsabreu.github.io/Animelt-Plugin/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/animelt",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt": "~0.4.1"
+  },
+  "keywords": []
+}

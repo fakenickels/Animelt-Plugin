@@ -24,14 +24,17 @@ In your web page:
 
 	$("div").animelt({
 		transform: "rotateX(30deg) rotateY(120deg)"
-	}, 0.6); // incredible	
+	}, 600); // incredible	
 
 </script>
 ```
 
 ## Examples
-See examples in that [page][http://grsabreu.github.io/Animelt-Plugin]
+See examples in http://grsabreu.github.io/Animelt-Plugin
 
 ## License
 Copyright (c) 2013 Gabriel Rubens  
 Licensed under the MIT license.
+
+## Buy me a soda ;)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8T9ZSYVZWYRXN)

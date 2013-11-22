@@ -13,12 +13,12 @@ Download the [production version][min] or the [development version][max].
 In your web page:
 
 ```html
-<script src="animelt.min.js"></script>	
+<script src="assets/animelt.min.js"></script>	
 <script type="text/javascript">
 	$("div").animelt({
 		width: "40px",
 		border: "2px solid #000"
-	}, 1, function(){
+	}, 1000, function(){
 		console.log("It's finished!");
 	}); // fantastic
 

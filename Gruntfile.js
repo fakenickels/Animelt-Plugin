@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         src: ['lib/**/*.js']
       },
       test: {
-        src: ['test/**/*.js']
+        src: ['test/*.js']
       },
     },
     watch: {
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
         files: '<%= jshint.test.src %>',
         tasks: ['jshint:test', 'nodeunit']
       },
-    },
+    }
   });
 
   // These plugins provide necessary tasks.

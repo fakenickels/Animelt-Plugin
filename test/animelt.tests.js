@@ -8,5 +8,5 @@ $(function(){
       transform: "rotate("+i+"deg)"
     }, 1500);
   });
-
+  
 })

@@ -7,8 +7,8 @@ My toy for complex animations (css3 fallbacks)
 ### In the browser
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/grsabreu/Animelt-Plugin/master/dist/animelt.min.js
-[max]: https://raw.github.com/grsabreu/Animelt-Plugin/master/dist/animelt.js
+[min]: https://raw.github.com/fakenickels/Animelt-Plugin/master/dist/animelt.min.js
+[max]: https://raw.github.com/fakenickels/Animelt-Plugin/master/dist/animelt.js
 
 In your web page:
 
@@ -30,7 +30,7 @@ In your web page:
 ```
 
 ## Examples
-See examples in http://grsabreu.github.io/Animelt-Plugin
+See examples in http://fakenickels.github.io/Animelt-Plugin
 
 ## License
 Copyright (c) 2013 Gabriel Rubens  
